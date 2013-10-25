@@ -21,6 +21,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        
+        <activity
+            android:name="com.relurori.sandbox.button.MovingButtons" >
         </activity>
     </application>
 
