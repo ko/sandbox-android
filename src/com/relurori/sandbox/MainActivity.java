@@ -1,6 +1,7 @@
 package com.relurori.sandbox;
 
 import com.relurori.sandbox.button.MovingButtons;
+import com.relurori.sandbox.gesture.Gestures;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -32,6 +33,18 @@ public class MainActivity extends Activity {
 			}
 			
 		});
+		
+		b = (Button) findViewById(R.id.gestureButtons);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, Gestures.class);
+				i.putExtra("genericKey", "value");
+				MainActivity.this.startActivity(i);
+			}
+		});
+		
 	}
 
 	@Override
