@@ -27,6 +27,9 @@
         <activity
             android:name="com.relurori.sandbox.button.MovingButtons" >
         </activity>
+                <activity
+            android:name="com.relurori.sandbox.gesture.Gestures" >
+        </activity>
     </application>
 
 </manifest>
