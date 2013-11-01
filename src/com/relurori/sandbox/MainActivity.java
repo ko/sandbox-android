@@ -2,6 +2,7 @@ package com.relurori.sandbox;
 
 import com.relurori.sandbox.button.MovingButtons;
 import com.relurori.sandbox.gesture.GesturesActivity;
+import com.relurori.sandbox.slidingmenu.SlidingMenuActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -40,6 +41,17 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(MainActivity.this, GesturesActivity.class);
+				i.putExtra("genericKey", "value");
+				MainActivity.this.startActivity(i);
+			}
+		});		
+		
+		b = (Button) findViewById(R.id.slidingMenu);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, SlidingMenuActivity.class);
 				i.putExtra("genericKey", "value");
 				MainActivity.this.startActivity(i);
 			}

@@ -23,13 +23,13 @@
             </intent-filter>
 
         </activity>
-        
-        <activity
-            android:name="com.relurori.sandbox.button.MovingButtons" >
+        <activity android:name="com.relurori.sandbox.button.MovingButtons" >
         </activity>
-                <activity
-            android:name="com.relurori.sandbox.gesture.GesturesActivity" >
+        <activity android:name="com.relurori.sandbox.gesture.GesturesActivity" >
         </activity>
+        <activity android:name="com.relurori.sandbox.gesture.SlidingMenuActivity" >
+        </activity>
+
     </application>
 
 </manifest>
