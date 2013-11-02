@@ -9,6 +9,11 @@ public class GestureUtil {
 	public static final int DOWN_EDGE_SOUTH = 2;
 	public static final int DOWN_EDGE_EAST = 4;
 	public static final int DOWN_EDGE_WEST = 8;
+	
+	public static final int SWIPE_EAST_TO_WEST = 1;
+	public static final int SWIPE_SOUTH_TO_NORTH = 2;
+	public static final int SWIPE_WEST_TO_EAST = 3;
+	public static final int SWIPE_NORTH_TO_SOUTH = 4;
 
 	private boolean DOWN_EDGE_STATE = false;
 	private int DOWN_EDGE_LOCATION = DOWN_EDGE_NOWHERE;
@@ -101,7 +106,6 @@ public class GestureUtil {
 	 * @return
 	 */
 	public int getSwipe() {
-		// TODO Auto-generated method stub
-		return 0;
+		return SWIPE_WEST_TO_EAST;
 	}
 }

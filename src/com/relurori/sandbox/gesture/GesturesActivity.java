@@ -11,9 +11,12 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class GesturesActivity extends Activity {
 	
@@ -23,6 +26,9 @@ public class GesturesActivity extends Activity {
 	private int screenY = 0;
 	
 	private GestureUtil gesture = null;
+	
+	private Button buttonEast;
+	private Button buttonWest;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +45,30 @@ public class GesturesActivity extends Activity {
 
 		getScreenResolution();
 		gesture = new GestureUtil(screenX, screenY);
+		
+		onCreateSetupButtons();
 	}
 	
+	private void onCreateSetupButtons() {
+		buttonEast = (Button) findViewById(R.id.buttonEast);
+		buttonEast.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "button east", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		buttonWest = (Button) findViewById(R.id.buttonWest);
+		buttonWest.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "button west", Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
 	private void getScreenResolution() {
 		WindowManager wm = (WindowManager) getApplicationContext()
 				.getSystemService(Context.WINDOW_SERVICE);
@@ -61,8 +89,7 @@ public class GesturesActivity extends Activity {
 	            Log.d(TAG,"Action was DOWN");
 	        Log.d(TAG,"DOWN@" + event.getY());
 	        	if (gesture.downNearEdge(event) == true) {
-
-	        	}
+	        	}	
 	            return true;
 	        case (MotionEvent.ACTION_MOVE) :
 	            Log.d(TAG,"Action was MOVE");
@@ -71,8 +98,11 @@ public class GesturesActivity extends Activity {
 	            Log.d(TAG,"Action was UP");
 	        	if (gesture.getGestureDownNearEdgeState() == true) {
 	        		gesture.setActionUp(event);
-	        		switch (gesture.getSwipe()) {
-	        		
+	        		if (gesture.getSwipe() == gesture.SWIPE_WEST_TO_EAST) {
+	        			if (buttonEast.getVisibility() == View.VISIBLE)
+	        				buttonEast.setVisibility(View.GONE);
+	        			else 
+	        				buttonEast.setVisibility(View.VISIBLE);
 	        		}
 	        	}
 	            return true;
