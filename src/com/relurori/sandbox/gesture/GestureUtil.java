@@ -126,24 +126,24 @@ public class GestureUtil {
 			return SWIPE_NOWHERE;
 		}
 
-		deltaX = eventUpX - eventDownX;
-		deltaY = eventUpY - eventUpY;
+		deltaX = Math.abs(eventUpX - eventDownX);
+		deltaY = Math.abs(eventUpY - eventUpY);
 
 		Log.d(TAG, "up.x,down.x=" + eventUpX + "," + eventDownX);
 		Log.d(TAG, "deltaX=" + deltaX + " deltaY=" + deltaY);
 		Log.d(TAG, "location = " + getGestureDownLocation());
 
 		if ((getGestureDownLocation() & DOWN_EDGE_NORTH) == DOWN_EDGE_NORTH) {
-			if (deltaY > 100)
+			if (deltaY > 100 && eventUpY > eventDownY)
 				return SWIPE_DOWN;
 		} else if ((getGestureDownLocation() & DOWN_EDGE_SOUTH) == DOWN_EDGE_SOUTH) {
-			if (deltaY > 100)
+			if (deltaY > 100 && eventUpY < eventDownY)
 				return SWIPE_UP;
 		} else if ((getGestureDownLocation() & DOWN_EDGE_EAST) == DOWN_EDGE_EAST) {
-			if (deltaX > 100)
+			if (deltaX > 100 && eventUpX < eventDownX)
 				return SWIPE_LEFT;
 		} else if ((getGestureDownLocation() & DOWN_EDGE_WEST) == DOWN_EDGE_WEST) {
-			if (deltaX > 100)
+			if (deltaX > 100 && eventUpX > eventDownX)
 				return SWIPE_RIGHT;
 		}
 
