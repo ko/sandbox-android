@@ -91,8 +91,6 @@ public class MovingActivity extends Activity implements OnLongClickListener, OnT
 			
             break;
 		case MotionEvent.ACTION_UP:
-			b = (MovingButton)v;
-			break;
 		case MotionEvent.ACTION_POINTER_DOWN:
 		case MotionEvent.ACTION_POINTER_UP:
 			break;
