@@ -127,7 +127,7 @@ public class GestureUtil {
 		}
 
 		deltaX = Math.abs(eventUpX - eventDownX);
-		deltaY = Math.abs(eventUpY - eventUpY);
+		deltaY = Math.abs(eventUpY - eventDownY);
 
 		Log.d(TAG, "up.x,down.x=" + eventUpX + "," + eventDownX);
 		Log.d(TAG, "deltaX=" + deltaX + " deltaY=" + deltaY);
