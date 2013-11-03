@@ -83,22 +83,22 @@ public class GesturesActivity extends Activity {
 	@Override
 	public boolean onTouchEvent(MotionEvent event){ 
 		int action = MotionEventCompat.getActionMasked(event);
-        
+
 	    switch(action) {
 	        case (MotionEvent.ACTION_DOWN) :
-	            Log.d(TAG,"Action was DOWN");
-	        Log.d(TAG,"DOWN@" + event.getY());
-	        	if (gesture.downNearEdge(event) == true) {
-	        	}	
+	        	gesture.setActionDown(event);
 	            return true;
+	            
 	        case (MotionEvent.ACTION_MOVE) :
-	            Log.d(TAG,"Action was MOVE");
 	            return true;
+	        
 	        case (MotionEvent.ACTION_UP) :
-	            Log.d(TAG,"Action was UP");
 	        	if (gesture.getGestureDownNearEdgeState() == true) {
 	        		gesture.setActionUp(event);
-	        		if (gesture.getSwipe() == gesture.SWIPE_WEST_TO_EAST) {
+	        		
+	        		Log.d(TAG,"swipe is=" + gesture.getSwipe());
+	        		
+	        		if (gesture.getSwipe() == gesture.SWIPE_RIGHT) {
 	        			if (buttonEast.getVisibility() == View.VISIBLE)
 	        				buttonEast.setVisibility(View.GONE);
 	        			else 
