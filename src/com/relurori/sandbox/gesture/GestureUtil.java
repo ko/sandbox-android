@@ -6,7 +6,8 @@ import android.view.MotionEvent;
 public class GestureUtil {
 
 	private static final String TAG = GestureUtil.class.getSimpleName();
-
+	private boolean DEBUG = true;
+	
 	public static final int DOWN_EDGE_NOWHERE = 0;
 	public static final int DOWN_EDGE_NORTH = 1;
 	public static final int DOWN_EDGE_SOUTH = 2;
@@ -129,9 +130,11 @@ public class GestureUtil {
 		deltaX = Math.abs(eventUpX - eventDownX);
 		deltaY = Math.abs(eventUpY - eventDownY);
 
-		Log.d(TAG, "up.x,down.x=" + eventUpX + "," + eventDownX);
-		Log.d(TAG, "deltaX=" + deltaX + " deltaY=" + deltaY);
-		Log.d(TAG, "location = " + getGestureDownLocation());
+		if (DEBUG) {
+			Log.d(TAG, "up.x,down.x=" + eventUpX + "," + eventDownX);
+			Log.d(TAG, "deltaX=" + deltaX + " deltaY=" + deltaY);
+			Log.d(TAG, "location = " + getGestureDownLocation());
+		}
 
 		if ((getGestureDownLocation() & DOWN_EDGE_NORTH) == DOWN_EDGE_NORTH) {
 			if (deltaY > 100 && eventUpY > eventDownY)
