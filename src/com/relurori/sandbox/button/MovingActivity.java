@@ -23,13 +23,12 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class MovingButtons extends Activity implements OnLongClickListener, OnTouchListener, OnDragListener {
+public class MovingActivity extends Activity implements OnLongClickListener, OnTouchListener, OnDragListener {
 
-	private static final String TAG = MovingButtons.class.getSimpleName();
+	private static final String TAG = MovingActivity.class.getSimpleName();
 	
 	private RelativeLayout mRelativeLayout = null;
-	private MovingController mMovingController = null;
-	private MovingLayer mMovingLayer = null;
+	private MovingButton b;
 	
 	private float deltaX, deltaY;
 	
@@ -40,9 +39,7 @@ public class MovingButtons extends Activity implements OnLongClickListener, OnTo
 		
 		Intent i = getIntent();
 		String key = i.getStringExtra("genericKey");
-		
-		mMovingController = new MovingController(getBaseContext());
-		mMovingLayer = new MovingLayer();
+
 		
 		mRelativeLayout = (RelativeLayout)findViewById(R.id.relLayout);
 		
@@ -50,7 +47,7 @@ public class MovingButtons extends Activity implements OnLongClickListener, OnTo
 	}
 
 	private void onCreateAddButtons() {
-		Button b = new Button(getBaseContext());
+		b = new MovingButton(getBaseContext());
 		b.setText("New button");
 		b.setOnLongClickListener(this);
 		b.setOnTouchListener(this);
@@ -81,21 +78,19 @@ public class MovingButtons extends Activity implements OnLongClickListener, OnTo
 		
 		switch(event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			
+			((MovingButton)v).setDownLocation(event.getX(), event.getY());
 			break;
 		case MotionEvent.ACTION_MOVE:
+
 			LayoutParams lparams = new RelativeLayout.LayoutParams(v.getWidth(), v.getHeight());
-			lparams.leftMargin = (int) (event.getX() - v.getWidth()/2);
-			lparams.topMargin = (int) (event.getY() - v.getHeight()/2);
-			/*
-			lparams.bottomMargin = v.getBottom();
-			lparams.rightMargin = v.getRight();
-			*/
-			lparams.height = v.getHeight();
-			lparams.width = v.getWidth();
+			lparams.leftMargin = (int) (v.getLeft() + (event.getX() - ((MovingButton)v).getDownX()));
+			lparams.topMargin = (int) (v.getTop() + (event.getY() - ((MovingButton)v).getDownY()));
 			v.setLayoutParams(lparams);
+			
             break;
 		case MotionEvent.ACTION_UP:
+			b = (MovingButton)v;
+			break;
 		case MotionEvent.ACTION_POINTER_DOWN:
 		case MotionEvent.ACTION_POINTER_UP:
 			break;

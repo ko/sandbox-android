@@ -23,7 +23,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name="com.relurori.sandbox.button.MovingButtons" >
+        <activity android:name="com.relurori.sandbox.button.MovingActivity" >
         </activity>
         <activity android:name="com.relurori.sandbox.gesture.GesturesActivity" >
         </activity>
