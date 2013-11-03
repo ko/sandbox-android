@@ -11,6 +11,8 @@ public class MovingButton extends Button {
 	private float marginLeft = 0;
 	private float downX = 0;
 	private float downY = 0;
+	private float originalW = 0;
+	private float originalH = 0;
 	
 	public MovingButton(Context context) {
 		super(context);
@@ -20,6 +22,19 @@ public class MovingButton extends Button {
 	public void setMargins(float top, float left) {
 		marginTop = top;
 		marginLeft = left;
+	}
+	
+	public void setDimensions(float w, float h) {
+		originalW = w;
+		originalH = h;
+	}
+	
+	public float getDimensionsHeight() {
+		return originalH;
+	}
+	
+	public float getDimensionsWidth() {
+		return originalW;
 	}
 	
 	public void setDownLocation(float x, float y) {

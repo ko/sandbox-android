@@ -52,6 +52,8 @@ public class MovingActivity extends Activity implements OnLongClickListener, OnT
 		b.setOnLongClickListener(this);
 		b.setOnTouchListener(this);
 		b.setOnDragListener(this);
+
+		b.setDimensions(500, 100);
 		
 		RelativeLayout.LayoutParams lParams = new RelativeLayout.LayoutParams(500, 100);
 		lParams.leftMargin = 100;
@@ -82,7 +84,7 @@ public class MovingActivity extends Activity implements OnLongClickListener, OnT
 			break;
 		case MotionEvent.ACTION_MOVE:
 
-			LayoutParams lparams = new RelativeLayout.LayoutParams(v.getWidth(), v.getHeight());
+			LayoutParams lparams = new RelativeLayout.LayoutParams((int)((MovingButton)v).getDimensionsWidth(), (int)((MovingButton)v).getDimensionsHeight());
 			lparams.leftMargin = (int) (v.getLeft() + (event.getX() - ((MovingButton)v).getDownX()));
 			lparams.topMargin = (int) (v.getTop() + (event.getY() - ((MovingButton)v).getDownY()));
 			v.setLayoutParams(lparams);
