@@ -3,6 +3,7 @@ package com.relurori.sandbox;
 import com.relurori.sandbox.button.MovingActivity;
 import com.relurori.sandbox.gesture.GesturesActivity;
 import com.relurori.sandbox.slidingmenu.SlidingMenuActivity;
+import com.relurori.sandbox.spreadsheetapi.SpreadsheetDemoActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -53,6 +54,16 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(MainActivity.this, SlidingMenuActivity.class);
 				i.putExtra("genericKey", "value");
+				MainActivity.this.startActivity(i);
+			}
+		});
+		
+		b = (Button) findViewById(R.id.spreadsheetDemo);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, SpreadsheetDemoActivity.class);
 				MainActivity.this.startActivity(i);
 			}
 		});

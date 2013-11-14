@@ -29,6 +29,8 @@
         </activity>
         <activity android:name="com.relurori.sandbox.gesture.SlidingMenuActivity" >
         </activity>
+        <activity android:name="com.relurori.sandbox.spreadsheetapi.SpreadsheetDemoActivity">
+        </activity>
 
     </application>
 
