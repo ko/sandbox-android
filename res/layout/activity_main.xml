@@ -45,4 +45,14 @@
         android:layout_marginTop="38dp"
         android:text="Spreadsheet Api" />
 
+    <Button
+        android:id="@+id/oauth2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spreadsheetDemo"
+        android:layout_below="@+id/spreadsheetDemo"
+        android:layout_marginTop="27dp"
+        android:text="Oauth2" />
+
 </RelativeLayout>
