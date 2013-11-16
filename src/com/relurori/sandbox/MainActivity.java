@@ -1,5 +1,6 @@
 package com.relurori.sandbox;
 
+import com.relurori.sandbox.accountmanager.AccountManagerActivity;
 import com.relurori.sandbox.button.MovingActivity;
 import com.relurori.sandbox.gesture.GesturesActivity;
 import com.relurori.sandbox.slidingmenu.SlidingMenuActivity;
@@ -64,6 +65,16 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(MainActivity.this, SpreadsheetJsonActivity.class);
+				MainActivity.this.startActivity(i);
+			}
+		});
+		
+		b = (Button) findViewById(R.id.oauth2);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, AccountManagerActivity.class);
 				MainActivity.this.startActivity(i);
 			}
 		});
