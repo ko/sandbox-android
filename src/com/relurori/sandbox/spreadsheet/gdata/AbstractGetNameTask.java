@@ -17,6 +17,11 @@
 package com.relurori.sandbox.spreadsheet.gdata;
 
 import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
+import com.google.gdata.util.AuthenticationException;
+import com.google.gdata.util.ServiceException;
 import com.relurori.sandbox.spreadsheet.gdata.SpreadsheetGdataActivity;
 
 import android.os.AsyncTask;
@@ -30,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Display personalized greeting. This class contains boilerplate code to consume the token but
@@ -53,18 +59,21 @@ public abstract class AbstractGetNameTask extends AsyncTask<Void, Void, Void>{
         Log.d(TAG,"AbstractGetNameTask");
     }
 
-    @Override
-    protected Void doInBackground(Void... params) {
-    	Log.d(TAG,"doInBackground");
-      try {
-        fetchNameFromProfileServer();
-      } catch (IOException ex) {
-        onError("Following Error occured, please try again. " + ex.getMessage(), ex);
-      } catch (JSONException e) {
-        onError("Bad response: " + e.getMessage(), e);
-      }
-      return null;
-    }
+	@Override
+	protected Void doInBackground(Void... params) {
+		Log.d(TAG, "doInBackground");
+		try {
+			// do work on server
+			fetchNameFromProfileServer();
+			fetchSpreadsheetListFromServer();
+		} catch (IOException ex) {
+			onError("Following Error occured, please try again. "
+					+ ex.getMessage(), ex);
+		} catch (JSONException e) {
+			onError("Bad response: " + e.getMessage(), e);
+		}
+		return null;
+	}
 
     protected void onError(String msg, Exception e) {
         if (e != null) {
@@ -114,6 +123,31 @@ public abstract class AbstractGetNameTask extends AsyncTask<Void, Void, Void>{
         }
     }
 
+    private void fetchSpreadsheetListFromServer() throws IOException, JSONException {
+    	Log.d(TAG,"fetchSpreadsheetListFromServer");
+    	String token = fetchToken();
+    	if (token == null) return;
+    	
+    	SpreadsheetService spreadsheet= new SpreadsheetService("v1");
+        spreadsheet.setProtocolVersion(SpreadsheetService.Versions.V3);
+
+        try {
+            spreadsheet.setAuthSubToken(token);
+            URL metafeedUrl = new URL("https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+            SpreadsheetFeed feed = spreadsheet.getFeed(metafeedUrl, SpreadsheetFeed.class);
+
+            List<SpreadsheetEntry> spreadsheets = feed.getEntries();
+            for (SpreadsheetEntry service : spreadsheets) {             
+                Log.d(TAG,service.getTitle().getPlainText());
+           }
+        } catch (AuthenticationException e) {           
+            e.printStackTrace();
+        } catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
     /**
      * Reads the response from the input stream and returns it as a string.
      */
