@@ -1,10 +1,12 @@
 package com.relurori.sandbox;
 
-import com.relurori.sandbox.accountmanager.AccountManagerActivity;
 import com.relurori.sandbox.button.MovingActivity;
 import com.relurori.sandbox.gesture.GesturesActivity;
+import com.relurori.sandbox.oauth2.AccountManagerActivity;
 import com.relurori.sandbox.slidingmenu.SlidingMenuActivity;
-import com.relurori.sandbox.spreadsheetjson.SpreadsheetJsonActivity;
+import com.relurori.sandbox.spreadsheet.gdata.SpreadsheetGdataActivity;
+import com.relurori.sandbox.spreadsheet.gdata.SpreadsheetGdataMainActivity;
+import com.relurori.sandbox.spreadsheet.json.SpreadsheetJsonActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -64,7 +66,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, SpreadsheetJsonActivity.class);
+				Intent i = new Intent(MainActivity.this, SpreadsheetGdataActivity.class);
 				MainActivity.this.startActivity(i);
 			}
 		});

@@ -1,4 +1,4 @@
-package com.relurori.sandbox.spreadsheetjson;
+package com.relurori.sandbox.spreadsheet.json;
 
 import com.relurori.sandbox.R;
 
