@@ -48,7 +48,9 @@
         </activity>
         <activity android:name="com.relurori.sandbox.spreadsheet.gdata.SpreadsheetGdataActivity" >
         </activity>
-        
+        <activity android:name="com.relurori.sandbox.preferences.DynamicPreferenceActivity">
+            
+        </activity>
     </application>
 
 </manifest>

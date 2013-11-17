@@ -55,4 +55,12 @@
         android:layout_marginTop="27dp"
         android:text="Oauth2" />
 
+    <Button
+        android:id="@+id/preferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/oauth2"
+        android:layout_toRightOf="@+id/gestureButtons"
+        android:text="Preferences" />
+
 </RelativeLayout>
