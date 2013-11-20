@@ -52,6 +52,8 @@
         </activity>
         <activity android:name="com.relurori.sandbox.localdb.DatabaseActivity">
         </activity>
+        <activity android:name="com.relurori.sandbox.camera.crop.CameraCropActivity">
+        </activity>
     </application>
 
 </manifest>

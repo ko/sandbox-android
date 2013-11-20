@@ -9,16 +9,6 @@
     tools:context=".SpreadsheetGdataActivity" >
 
     <Button
-        android:id="@+id/movingButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="31dp"
-        android:text="Moving Buttons" />
-
-    <Button
         android:id="@+id/gestureButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,11 +54,30 @@
         android:text="Preferences" />
 
     <Button
+        android:id="@+id/movingButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="28dp"
+        android:text="Moving Buttons" />
+
+    <Button
+        android:id="@+id/cameraCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spreadsheetDemo"
+        android:layout_toRightOf="@+id/movingButtons"
+        android:text="Camera Crop" />
+
+    <Button
         android:id="@+id/database"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/gestureButtons"
         android:layout_alignBottom="@+id/gestureButtons"
-        android:layout_toRightOf="@+id/spreadsheetDemo"
+        android:layout_alignLeft="@+id/cameraCrop"
         android:text="Database" />
 
 </RelativeLayout>
