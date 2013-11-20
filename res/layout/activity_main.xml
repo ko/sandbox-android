@@ -63,4 +63,12 @@
         android:layout_toRightOf="@+id/gestureButtons"
         android:text="Preferences" />
 
+    <Button
+        android:id="@+id/database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gestureButtons"
+        android:layout_toRightOf="@+id/spreadsheetDemo"
+        android:text="Database" />
+
 </RelativeLayout>

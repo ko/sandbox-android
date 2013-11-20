@@ -49,7 +49,8 @@
         <activity android:name="com.relurori.sandbox.spreadsheet.gdata.SpreadsheetGdataActivity" >
         </activity>
         <activity android:name="com.relurori.sandbox.preferences.DynamicPreferenceActivity">
-            
+        </activity>
+        <activity android:name="com.relurori.sandbox.localdb.DatabaseActivity">
         </activity>
     </application>
 
