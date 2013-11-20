@@ -14,7 +14,7 @@ public class DatabaseActivity extends Activity {
 		super.onCreate(icicle);
 		
 		TestDb db = new TestDb(getBaseContext());
-		db.createRecords("id1", "name1");
+		db.createRecords(1, "name1");
 		Cursor cursor = db.selectRecords();
 		
 		Log.d(TAG,"cursor|getString=" + cursor.getString(1));
