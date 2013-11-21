@@ -64,20 +64,28 @@
         android:text="Moving Buttons" />
 
     <Button
-        android:id="@+id/cameraCrop"
+        android:id="@+id/cameraCropExternal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/spreadsheetDemo"
+        android:layout_below="@+id/slidingMenu"
         android:layout_toRightOf="@+id/movingButtons"
-        android:text="Camera Crop" />
+        android:text="Camera Crop External" />
+
+    <Button
+        android:id="@+id/cameraCropInternal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gestureButtons"
+        android:layout_alignLeft="@+id/cameraCropExternal"
+        android:layout_marginBottom="14dp"
+        android:text="Camera Crop Internal" />
 
     <Button
         android:id="@+id/database"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/gestureButtons"
-        android:layout_alignBottom="@+id/gestureButtons"
-        android:layout_alignLeft="@+id/cameraCrop"
+        android:layout_alignLeft="@+id/cameraCropInternal"
+        android:layout_below="@+id/cameraCropInternal"
         android:text="Database" />
 
 </RelativeLayout>
