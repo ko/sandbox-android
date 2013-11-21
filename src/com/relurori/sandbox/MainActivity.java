@@ -1,6 +1,7 @@
 package com.relurori.sandbox;
 
 import com.relurori.sandbox.button.MovingActivity;
+import com.relurori.sandbox.camera.crop.CameraCropActivity;
 import com.relurori.sandbox.gesture.GesturesActivity;
 import com.relurori.sandbox.localdb.DatabaseActivity;
 import com.relurori.sandbox.oauth2.AccountManagerActivity;
@@ -103,7 +104,17 @@ public class MainActivity extends Activity {
 				MainActivity.this.startActivity(i);
 			}
 		});
-		
+
+
+		b = (Button) findViewById(R.id.cameraCrop);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, CameraCropActivity.class);
+				MainActivity.this.startActivity(i);
+			}
+		});
 	}
 
 	@Override
