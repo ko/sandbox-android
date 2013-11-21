@@ -1,7 +1,7 @@
 package com.relurori.sandbox;
 
 import com.relurori.sandbox.button.MovingActivity;
-import com.relurori.sandbox.camera.crop.CameraCropActivity;
+import com.relurori.sandbox.camera.crop.external.CameraCropSeperateActivity;
 import com.relurori.sandbox.gesture.GesturesActivity;
 import com.relurori.sandbox.localdb.DatabaseActivity;
 import com.relurori.sandbox.oauth2.AccountManagerActivity;
@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, CameraCropActivity.class);
+				Intent i = new Intent(MainActivity.this, CameraCropSeperateActivity.class);
 				MainActivity.this.startActivity(i);
 			}
 		});

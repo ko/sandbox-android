@@ -1,4 +1,4 @@
-package com.relurori.sandbox.camera.crop;
+package com.relurori.sandbox.camera.crop.external;
 
 import java.io.File;
 
@@ -14,9 +14,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public class CameraCropActivity extends Activity {
+public class CameraCropSeperateActivity extends Activity {
 
-	private static final String TAG = CameraCropActivity.class.getSimpleName();
+	private static final String TAG = CameraCropSeperateActivity.class.getSimpleName();
 	
 	final int CAMERA_CAPTURE = 0x0001;
 	final int REQUEST_CODE_CROP = 0x1001;
