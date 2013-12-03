@@ -16,6 +16,8 @@
         android:minSdkVersion="13"
         android:targetSdkVersion="17" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <application
         android:allowBackup="true"
@@ -54,6 +56,8 @@
         <activity android:name="com.relurori.sandbox.localdb.DatabaseActivity">
         </activity>
         <activity android:name="com.relurori.sandbox.camera.crop.external.CameraCropSeperateActivity">
+        </activity> 
+        <activity android:name="com.relurori.sandbox.bluetooth.BluetoothChatActivity">
         </activity>
     </application>
 
