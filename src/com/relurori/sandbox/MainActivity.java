@@ -1,5 +1,6 @@
 package com.relurori.sandbox;
 
+import com.relurori.sandbox.bluetooth.BluetoothChatActivity;
 import com.relurori.sandbox.button.MovingActivity;
 import com.relurori.sandbox.camera.crop.external.CameraCropSeperateActivity;
 import com.relurori.sandbox.camera.crop.internal.CameraCropInternalActivity;
@@ -127,6 +128,18 @@ public class MainActivity extends Activity {
 				MainActivity.this.startActivity(i);
 			}
 		});
+		
+
+		b = (Button) findViewById(R.id.btChat);
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, BluetoothChatActivity.class);
+				MainActivity.this.startActivity(i);
+			}
+		});
+		
 	}
 
 	@Override

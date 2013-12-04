@@ -2,6 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
+    <Button
+        android:id="@+id/btDiscover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Discover" />
+
+    <ListView
+        android:id="@+id/btDeviceList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btPaired"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btDiscover" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/btPaired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Paired" />
 
 </RelativeLayout>

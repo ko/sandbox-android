@@ -88,4 +88,12 @@
         android:layout_below="@+id/cameraCropInternal"
         android:text="Database" />
 
+    <Button
+        android:id="@+id/btChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cameraCropInternal"
+        android:layout_alignParentTop="true"
+        android:text="BT Chat" />
+
 </RelativeLayout>
